@@ -2,22 +2,20 @@ package pl.sdk;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BoardTest {
 
     @Test
     void shouldAddCreature() {
-        //given
         Creature creature = new Creature();
         Point point = new Point(1, 1);
         Board board = new Board();
-        //when
         board.add(point, creature);
-        Creature creatureFromBoard = board.get(point);
-        //then
-assertEquals();
+
+        Creature creatureFromBoard = board.get(1, 1);
+
+        assertEquals(creature, creatureFromBoard);
     }
 
 }

@@ -11,10 +11,10 @@ class Board {
     }
 
     void add(Point point, Creature creature) {
-
+        map.put(point, creature);
     }
 
-    Creature get(Point point) {
-        return null;
+    Creature get(int x, int y) {
+        return map.get(new Point(x, y));
     }
 }
