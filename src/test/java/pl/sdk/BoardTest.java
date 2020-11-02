@@ -28,10 +28,9 @@ class BoardTest {
         Creature creature2 = new Creature();
 
         board.add(new Point(2, 2), creature);
-        board.add(new Point(2, 2), creature2);
 
-        assertNotEquals(board.get(2, 2), creature2);
         assertEquals(board.get(2, 2), creature);
+        assertThrows(IllegalArgumentException.class, () -> board.add(new Point(2, 2), creature2));
     }
 
     @Test

@@ -11,7 +11,10 @@ class Board {
     }
 
     void add(Point point, Creature creature) {
-        map.putIfAbsent(point, creature);
+        if (map.containsKey(point)) {
+            throw new IllegalArgumentException();
+        }
+        map.put(point, creature);
     }
 
     void moveCreature(Point startPosition, Point endPosition) {
