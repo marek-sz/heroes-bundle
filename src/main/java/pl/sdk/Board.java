@@ -11,7 +11,7 @@ class Board {
     }
 
     void add(Point point, Creature creature) {
-        map.put(point, creature);
+        map.putIfAbsent(point, creature);
     }
 
     Creature get(int x, int y) {
