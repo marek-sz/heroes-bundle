@@ -36,4 +36,12 @@ class BoardMovingTest {
 
         assertThrows(IllegalArgumentException.class, () -> board.moveCreature(start, end));
     }
+
+    @Test
+    void shouldThrowExceptionWhenTryAddCreatureOutOfMapBoundaries() {
+        assertThrows(IllegalArgumentException.class, () -> board.add(new Point(21, 0), new Creature()));
+        assertThrows(IllegalArgumentException.class, () -> board.add(new Point(0, 16), new Creature()));
+        assertThrows(IllegalArgumentException.class, () -> board.add(new Point(0, -16), new Creature()));
+        assertDoesNotThrow(() -> board.add(new Point(20,15), new Creature()));
+    }
 }
