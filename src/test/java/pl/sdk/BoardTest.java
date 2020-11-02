@@ -30,8 +30,8 @@ class BoardTest {
         board.add(new Point(2, 2), creature);
         board.add(new Point(2, 2), creature2);
 
-        assertEquals(board.get(2, 2), creature);
         assertNotEquals(board.get(2, 2), creature2);
+        assertEquals(board.get(2, 2), creature);
     }
 
     @Test
@@ -42,4 +42,11 @@ class BoardTest {
         assertNull(board.get(2, 2));
     }
 
+    @Test
+    void shouldReturnNullIfFieldIsEmpty2() {
+        board.add(new Point(0, 0), new Creature());
+
+        assertNotNull(board.get(0, 0));
+        assertNull(board.get(2, 2));
+    }
 }
