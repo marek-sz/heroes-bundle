@@ -36,7 +36,6 @@ class BoardTest {
     @Test
     void shouldReturnNullIfFieldIsEmpty() {
         board.add(new Point(0, 0), new Creature());
-
         assertNotNull(board.get(0, 0));
         assertNull(board.get(2, 2));
     }
