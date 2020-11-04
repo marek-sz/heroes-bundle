@@ -5,14 +5,14 @@ public class CreatureStatistics {
     private int attack;
     private int defense;
     private int healthPoints;
-    private int manaPoints;
+    private int moveRange;
 
-    CreatureStatistics(String creatureName, int attack, int defense, int healthPoints, int manaPoints) {
+    CreatureStatistics(String creatureName, int attack, int defense, int healthPoints, int moveRange) {
         this.creatureName = creatureName;
         this.attack = attack;
         this.defense = defense;
         this.healthPoints = healthPoints;
-        this.manaPoints = manaPoints;
+        this.moveRange = moveRange;
     }
 
     String getCreatureName() {
@@ -47,11 +47,11 @@ public class CreatureStatistics {
         this.healthPoints = healthPoints;
     }
 
-    int getManaPoints() {
-        return manaPoints;
+    int getMoveRange() {
+        return moveRange;
     }
 
-    void setManaPoints(int manaPoints) {
-        this.manaPoints = manaPoints;
+    void setMoveRange(int moveRange) {
+        this.moveRange = moveRange;
     }
 }
