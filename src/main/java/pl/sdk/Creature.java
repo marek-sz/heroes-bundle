@@ -11,37 +11,30 @@ public class Creature {
 
     Creature(String creatureName, int attack, int defense, int healthPoints, int moveRange) {
         statistics = new CreatureStatistics(creatureName, attack, defense, healthPoints, moveRange);
-        currentHealthPoints = healthPoints;
+        currentHealthPoints = statistics.getHealthPoints();
     }
 
     CreatureStatistics getStatistics() {
         return statistics;
     }
 
-    void setStatistics(CreatureStatistics statistics) {
-        this.statistics = statistics;
-    }
-
     int getCurrentHealthPoints() {
         return currentHealthPoints;
     }
 
-    void setCurrentHealthPoints(int currentHealthPoints) {
-        this.currentHealthPoints = currentHealthPoints;
+    void attack(Creature defender) {
+        int damageToDeal = this.statistics.getAttack() - defender.statistics.getDefense();
+        if (damageToDeal < 0) {
+            defender.currentHealthPoints -= 1;
+        } else {
+            defender.currentHealthPoints -= damageToDeal;
+            if (!isAlive(defender)) {
+                defender.currentHealthPoints = 0;
+            }
+        }
     }
 
-    int damageToDeal(Creature defender) {
-        int attackerAttack = this.getStatistics().getAttack();
-        int defenderDefense = defender.getStatistics().getDefense();
-
-        if (defenderDefense > attackerAttack) {
-            return defender.getCurrentHealthPoints() - 1;
-        }
-
-        int damageToDeal = defender.getCurrentHealthPoints() - attackerAttack - defenderDefense;
-        if (damageToDeal < 0) {
-            return 0;
-        }
-        return damageToDeal;
+    private boolean isAlive(Creature creature) {
+        return creature.currentHealthPoints > 0;
     }
 }

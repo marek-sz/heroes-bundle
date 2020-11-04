@@ -23,22 +23,24 @@ class CreatureAttackTest {
 
     @Test
     void defenderShouldLost1HpAfterAttack() {
-        assertEquals(9, attacker.damageToDeal(defender));
+        attacker.attack(defender);
+        assertEquals(9, defender.getCurrentHealthPoints());
     }
 
     @Test
     void defenderShouldLost1HpWhenHisDefenseIsGreaterThanAttackerAttack() {
-        assertEquals(9, greatAttacker.damageToDeal(greatDefender));
+        attacker.attack(greatDefender);
+        assertEquals(9, greatDefender.getCurrentHealthPoints());
     }
 
     @Test
     void creatureShallDieWhenItsHpIs0orLess() {
-        assertEquals(0, greatAttacker.damageToDeal(defender));
+        greatAttacker.attack(defender);
+        assertEquals(0, defender.getCurrentHealthPoints());
     }
 
     @Test
     void creatureShallNotBeAbleToMoveWhenItsDead() {
-
         fail();
     }
 
