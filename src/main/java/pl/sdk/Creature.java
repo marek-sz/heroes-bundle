@@ -4,6 +4,7 @@ public class Creature {
 
     private CreatureStatistics statistics;
     private int currentHealthPoints;
+    private boolean counterAttackedInThisTurn;
 
     Creature() {
         statistics = new CreatureStatistics("Archangel", 1, 0, 10, 10);
@@ -14,27 +15,35 @@ public class Creature {
         currentHealthPoints = statistics.getHealthPoints();
     }
 
-    CreatureStatistics getStatistics() {
-        return statistics;
-    }
-
     int getCurrentHealthPoints() {
         return currentHealthPoints;
     }
 
     void attack(Creature defender) {
-        int damageToDeal = this.statistics.getAttack() - defender.statistics.getDefense();
-        if (damageToDeal < 0) {
-            defender.currentHealthPoints -= 1;
-        } else {
+        if (isAlive()) {
+            int damageToDeal = calculateDamage(defender);
             defender.currentHealthPoints -= damageToDeal;
-            if (!isAlive(defender)) {
+            if (defender.currentHealthPoints < 0) {
                 defender.currentHealthPoints = 0;
+            }
+
+            if (!defender.counterAttackedInThisTurn) {
+                int damageToDealCounterAttack = defender.calculateDamage(this);
+                currentHealthPoints -= damageToDealCounterAttack;
+                defender.counterAttackedInThisTurn = true;
             }
         }
     }
 
-    private boolean isAlive(Creature creature) {
-        return creature.currentHealthPoints > 0;
+    private int calculateDamage(Creature defender) {
+        int damageToDeal = this.statistics.getAttack() - defender.statistics.getDefense();
+        if (damageToDeal < 0) {
+            damageToDeal = 1;
+        }
+        return damageToDeal;
+    }
+
+    private boolean isAlive() {
+        return currentHealthPoints > 0;
     }
 }

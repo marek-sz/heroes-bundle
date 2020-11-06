@@ -39,14 +39,4 @@ class CreatureAttackTest {
         assertEquals(0, defender.getCurrentHealthPoints());
     }
 
-    @Test
-    void creatureShallNotBeAbleToMoveWhenItsDead() {
-        fail();
-    }
-
-    @Test
-    void creatureShallNotBeAbleToAttackWhenItsDead() {
-        fail();
-    }
-
 }

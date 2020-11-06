@@ -2,7 +2,7 @@ package pl.sdk;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AttackCreatureTest {
 
@@ -26,14 +26,4 @@ class AttackCreatureTest {
 
         assertEquals(99, defender.getCurrentHealthPoints());
     }
-
-//    @Test
-//    void defenderShouldLostOnly1HpWhenHasGreaterDefenseThanAttackerAttack() {
-//        Creature attacker = new Creature("Attacker", 10, 0, 100, NOT_IMPORTANT);
-//        Creature defender = new Creature("Defender", 1, 11, 100, NOT_IMPORTANT);
-//
-//        attacker.attack(defender);
-//
-//        assertEquals(99, defender.getCurrentHealthPoints());
-//    }
 }
