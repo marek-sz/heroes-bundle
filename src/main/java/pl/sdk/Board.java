@@ -38,4 +38,11 @@ class Board {
     Creature get(int x, int y) {
         return map.get(new Point(x, y));
     }
+
+    Point get(Creature creature) {
+        return null;
+    }
 }
+
+
+

@@ -44,4 +44,12 @@ class BoardMovingTest {
         assertThrows(IllegalArgumentException.class, () -> board.add(new Point(0, -16), new Creature()));
         assertDoesNotThrow(() -> board.add(new Point(20,15), new Creature()));
     }
+
+    @Test
+    void shouldReturnCorrectLocationForCreature() {
+        board.add(new Point(5, 5), creature);
+
+        assertEquals(new Point(5,5), board.get(creature));
+    }
+
 }

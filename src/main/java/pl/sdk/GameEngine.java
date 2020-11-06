@@ -21,6 +21,8 @@ public class GameEngine {
         putCreaturesFromOneSideToBoard(creatures2, Board.WIDTH - 1);
     }
 
+
+
     private void putCreaturesFromOneSideToBoard(List<Creature> creatures, int x) {
         for (int i = 0; i < creatures.size(); i++) {
             board.add(new Point(x, i * 2), creatures.get(i));
