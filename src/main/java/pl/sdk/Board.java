@@ -5,8 +5,8 @@ import java.util.Map;
 
 class Board {
     private final Map<Point, Creature> map;
-    private static final int WIDTH = 20;
-    private static final int HEIGHT = 15;
+    static final int WIDTH = 20;
+    static final int HEIGHT = 15;
 
     Board() {
         map = new HashMap<>();
