@@ -17,6 +17,23 @@ class Board {
         map.put(point, creature);
     }
 
+    void moveCreature(Point startPosition, Point endPosition) {
+        add(endPosition, map.get(startPosition));
+        map.remove(startPosition);
+    }
+
+    void moveThisCreature(Creature creature, Point targetPoint) {
+        moveCreature(getPoint(creature), targetPoint);
+    }
+
+    Creature getCreature(int x, int y) {
+        return map.get(new Point(x, y));
+    }
+
+    Point getPoint(Creature creature) {
+        return map.keySet().stream().filter(k -> map.containsValue(creature)).findFirst().get();
+    }
+
     private void throwExceptionWhenFieldIsTakenOrOutOfBounds(Point point) {
         if (map.containsKey(point) || withinMapRange(point)) {
             throw new IllegalArgumentException();
@@ -29,20 +46,4 @@ class Board {
         return x < 0 || x > WIDTH
                 || y < 0 || y > HEIGHT;
     }
-
-    void moveCreature(Point startPosition, Point endPosition) {
-        add(endPosition, map.get(startPosition));
-        map.remove(startPosition);
-    }
-
-    Creature get(int x, int y) {
-        return map.get(new Point(x, y));
-    }
-
-    Point get(Creature creature) {
-        return null;
-    }
 }
-
-
-

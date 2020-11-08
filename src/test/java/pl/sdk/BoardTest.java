@@ -19,7 +19,7 @@ class BoardTest {
     void shouldAddCreature() {
         Point point = new Point(2, 2);
         board.add(point, creature);
-        Creature creatureFromBoard = board.get(2, 2);
+        Creature creatureFromBoard = board.getCreature(2, 2);
         assertEquals(creature, creatureFromBoard);
     }
 
@@ -29,22 +29,22 @@ class BoardTest {
 
         board.add(new Point(2, 2), creature);
 
-        assertEquals(board.get(2, 2), creature);
+        assertEquals(board.getCreature(2, 2), creature);
         assertThrows(IllegalArgumentException.class, () -> board.add(new Point(2, 2), creature2));
     }
 
     @Test
     void shouldReturnNullIfFieldIsEmpty() {
         board.add(new Point(0, 0), new Creature());
-        assertNotNull(board.get(0, 0));
-        assertNull(board.get(2, 2));
+        assertNotNull(board.getCreature(0, 0));
+        assertNull(board.getCreature(2, 2));
     }
 
     @Test
     void shouldReturnNullIfFieldIsEmpty2() {
         board.add(new Point(0, 0), new Creature());
 
-        assertNotNull(board.get(0, 0));
-        assertNull(board.get(2, 2));
+        assertNotNull(board.getCreature(0, 0));
+        assertNull(board.getCreature(2, 2));
     }
 }
