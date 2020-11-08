@@ -1,8 +1,9 @@
 # HEROES
+![](https://steemitimages.com/p/2r8F9rTBenJQfQgENfxADE6EVYabczqmSF5KeWefV5WL9WDmKhrVeoVq8pmPkKqRebak9oKxgXTsSkzmUJyXCB9CTpfKtbTg7ga8Axt2xGb2e4nZUYVMu5CxLx8Kipkc5?format=match&mode=fit)
 ### Description
-This project is a bold attempt to re-create legendary game of Heroes Of Might And Magic 3 from 1999.
+This project is an attempt to re-create legendary game of Heroes Of Might And Magic 3 from 1999.
 
-Project is developing in Java, using the TDD methodology.
+Project is being developed in Java, using the TDD methodology.
 
 JavaFx will be used to create application GUI.
 
