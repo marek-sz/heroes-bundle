@@ -10,6 +10,7 @@ public class CreatureTurnQueue {
     private Queue<Creature> movementOrder;
     private Creature activeCreature;
 
+
     public CreatureTurnQueue(Collection<Creature> creatureList) {
         this.creatureList = creatureList;
         movementOrder = new LinkedList<>();
@@ -30,5 +31,6 @@ public class CreatureTurnQueue {
 
     private void initQueue() {
         movementOrder.addAll(creatureList);
+        creatureList.forEach(Creature::resetCounterAttacksInNewRound);
     }
 }

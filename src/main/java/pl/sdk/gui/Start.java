@@ -11,4 +11,6 @@ public class Start {
         GameEngine gameEngine = new GameEngine(new ArrayList<>(), new ArrayList<>());
         gameEngine.move(new Point(5, 5));
     }
+
+
 }

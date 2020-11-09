@@ -26,12 +26,15 @@ public class Creature {
             if (defender.currentHealthPoints < 0) {
                 defender.currentHealthPoints = 0;
             }
+            counterAttack(defender);
+        }
+    }
 
-            if (!defender.counterAttackedInThisTurn) {
-                int damageToDealCounterAttack = defender.calculateDamage(this);
-                currentHealthPoints -= damageToDealCounterAttack;
-                defender.counterAttackedInThisTurn = true;
-            }
+    private void counterAttack(Creature defender) {
+        if (!defender.counterAttackedInThisTurn) {
+            int damageToDealCounterAttack = defender.calculateDamage(this);
+            currentHealthPoints -= damageToDealCounterAttack;
+            defender.counterAttackedInThisTurn = true;
         }
     }
 
@@ -45,5 +48,9 @@ public class Creature {
 
     private boolean isAlive() {
         return currentHealthPoints > 0;
+    }
+
+    void resetCounterAttacksInNewRound() {
+        this.counterAttackedInThisTurn = false;
     }
 }
