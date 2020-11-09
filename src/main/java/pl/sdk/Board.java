@@ -5,8 +5,8 @@ import java.util.Map;
 
 class Board {
     private final Map<Point, Creature> map;
-    private static final int WIDTH = 20;
-    private static final int HEIGHT = 15;
+    static final int WIDTH = 20;
+    static final int HEIGHT = 15;
 
     Board() {
         map = new HashMap<>();
@@ -15,6 +15,23 @@ class Board {
     void add(Point point, Creature creature) {
         throwExceptionWhenFieldIsTakenOrOutOfBounds(point);
         map.put(point, creature);
+    }
+
+    void moveCreature(Point startPosition, Point endPosition) {
+        add(endPosition, map.get(startPosition));
+        map.remove(startPosition);
+    }
+
+    void moveThisCreature(Creature creature, Point targetPoint) {
+        moveCreature(getPoint(creature), targetPoint);
+    }
+
+    Creature getCreature(int x, int y) {
+        return map.get(new Point(x, y));
+    }
+
+    Point getPoint(Creature creature) {
+        return map.keySet().stream().filter(k -> map.containsValue(creature)).findFirst().get();
     }
 
     private void throwExceptionWhenFieldIsTakenOrOutOfBounds(Point point) {
@@ -28,14 +45,5 @@ class Board {
         int y = point.getY();
         return x < 0 || x > WIDTH
                 || y < 0 || y > HEIGHT;
-    }
-
-    void moveCreature(Point startPosition, Point endPosition) {
-        add(endPosition, map.get(startPosition));
-        map.remove(startPosition);
-    }
-
-    Creature get(int x, int y) {
-        return map.get(new Point(x, y));
     }
 }
