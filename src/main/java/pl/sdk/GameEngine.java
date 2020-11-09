@@ -21,15 +21,15 @@ public class GameEngine {
         putCreaturesFromOneSideToBoard(creatures2, Board.WIDTH - 1);
     }
 
-    void move(Point targetPoint) {
+    public void move(Point targetPoint) {
         board.moveThisCreature(queue.getActiveCreature(), targetPoint);
     }
 
-    void pass() {
+    public void pass() {
         queue.next();
     }
 
-    void attack(Creature defender) {
+    public void attack(Creature defender) {
         queue.getActiveCreature().attack(defender);
     }
 
