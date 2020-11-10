@@ -37,14 +37,12 @@ class CreatureCounterAttackTest {
         GameEngine gameEngine = new GameEngine(Arrays.asList(attacker), Arrays.asList(defender));
 
         gameEngine.attack(defender);
-//        attacker.attack(defender);
         assertEquals(9, attacker.getCurrentHealthPoints());
 
         gameEngine.pass();
         gameEngine.pass();
 
         gameEngine.attack(defender);
-//        attacker.attack(defender);
         assertEquals(8, attacker.getCurrentHealthPoints());
     }
 }

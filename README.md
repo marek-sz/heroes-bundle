@@ -11,6 +11,13 @@ JavaFx will be used to create application GUI.
 * Backend: Java 11, JavaFx, JUnit4, Maven 
 * Tools: GIT, Sourcetree 
 
+### Build and run Java application
+To run the application from the project folder type
+
+```sh
+mvn clean javafx:run
+```
+
 
 #### Just to keep on hand
 Creatures statistics
