@@ -19,6 +19,4 @@ public class BattleScene extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
-// TODO: 2020-11-10 show Points and Segments in GUI 

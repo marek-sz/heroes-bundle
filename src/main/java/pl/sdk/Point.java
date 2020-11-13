@@ -1,15 +1,24 @@
 package pl.sdk;
 
+import javafx.scene.shape.Line;
+
 import java.util.Objects;
 
-public class Point {
+public class Point extends Line {
 
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+
+        setStartX(50 * x + 50);
+        setEndX(50 * x + 50);
+        setStartY(350 - 50 * y);
+        setEndY(350 - 50 * y);
+
+        setStrokeWidth(5);
     }
 
     @Override
@@ -32,5 +41,13 @@ public class Point {
 
     int getX() {
         return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    void setY(int y) {
+        this.y = y;
     }
 }
