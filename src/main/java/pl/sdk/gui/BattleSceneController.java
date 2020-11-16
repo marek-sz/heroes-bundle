@@ -1,7 +1,6 @@
 package pl.sdk.gui;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import pl.sdk.Point;
@@ -14,13 +13,12 @@ public class BattleSceneController {
 
     @FXML
     private void initialize() {
-        Point common = new Point(1, 1);
-        Point end1 = new Point(1, 4);
-        Point end2 = new Point(4, 1);
-        common = new Point(4, 4);
+        Point point1 = new Point(1, 1);
+        Point point2 = new Point(1, 4);
+        Point point3 = new Point(4, 1);
 
-        Segment segment = new Segment(common, end1, Color.BLUE);
-        Segment segment1 = new Segment(common, end2);
+        Segment segment = new Segment(point1, point2, Color.BLUE);
+        Segment segment1 = new SelfishSegment(point1, point3);
 
         pane.getChildren().addAll(segment, segment1);
 

@@ -21,6 +21,11 @@ public class Point extends Line {
         setStrokeWidth(5);
     }
 
+    public Point(Point point) {
+        this.x = point.getX();
+        this.y = point.getY();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
