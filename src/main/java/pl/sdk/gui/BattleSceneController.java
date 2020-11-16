@@ -2,9 +2,11 @@ package pl.sdk.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import pl.sdk.Point;
 import pl.sdk.Segment;
+import pl.sdk.ShapeRenderer;
+
+import java.util.Arrays;
 
 public class BattleSceneController {
 
@@ -14,16 +16,18 @@ public class BattleSceneController {
     @FXML
     private void initialize() {
         Point point1 = new Point(1, 1);
-        Point point2 = new Point(1, 4);
-        Point point3 = new Point(4, 1);
+        Point point2 = new Point(3, 1);
+        Point point3 = new Point(3, 3);
+        Point point4 = new Point(1, 3);
 
-        Segment segment = new Segment(point1, point2, Color.BLUE);
-        Segment segment1 = new SelfishSegment(point1, point3);
+        ShapeRenderer shape = new ShapeRenderer(Arrays.asList(point1, point2, point3, point4));
+        shape.draw(pane);
 
-        pane.getChildren().addAll(segment, segment1);
-
-        segment.getStartPoint().setX(8);
-        refreshGui(segment, segment1);
+        shape.getPoints().get(2).setX(5);
+        pane.getChildren().stream()
+                .filter(n -> n instanceof Segment)
+                .map(node -> (Segment) node)
+                .forEach(Segment::refreshGui);
     }
 
     private void refreshGui(Segment segment, Segment segment1) {

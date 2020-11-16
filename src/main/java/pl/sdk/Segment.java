@@ -4,8 +4,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 
-import java.util.Objects;
-
 public class Segment extends Line {
     private Point startPoint;
     private Point endPoint;
@@ -19,7 +17,7 @@ public class Segment extends Line {
     }
 
     public Segment(Point startPoint, Point endPoint) {
-        this(startPoint, endPoint, Color.AQUA);
+        this(startPoint, endPoint, Color.ROSYBROWN);
     }
 
     public void refreshGui() {
@@ -45,10 +43,10 @@ public class Segment extends Line {
         return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(startPoint, endPoint);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(startPoint, endPoint);
+//    }
 
     public Point getStartPoint() {
         return startPoint;
