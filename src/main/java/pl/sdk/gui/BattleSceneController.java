@@ -5,6 +5,7 @@ import javafx.scene.layout.AnchorPane;
 import pl.sdk.Point;
 import pl.sdk.Segment;
 import pl.sdk.ShapeRenderer;
+import pl.sdk.ShapeSelfishRenderer;
 
 import java.util.Arrays;
 
@@ -21,7 +22,12 @@ public class BattleSceneController {
         Point point4 = new Point(1, 3);
 
         ShapeRenderer shape = new ShapeRenderer(Arrays.asList(point1, point2, point3, point4));
+        ShapeSelfishRenderer selfishShape = new ShapeSelfishRenderer(Arrays.asList(point1, point2, point3, point4));
+        ShapeSelfishRenderer selfishShape2 = new ShapeSelfishRenderer(Arrays.asList(point2, point1, point3, point4));
         shape.draw(pane);
+
+        selfishShape.draw(pane);
+        selfishShape2.draw(pane);
 
         shape.getPoints().get(2).setX(5);
         pane.getChildren().stream()
